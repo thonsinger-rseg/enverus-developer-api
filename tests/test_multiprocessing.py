@@ -9,7 +9,7 @@ set_token()
 
 
 LOG_LEVEL = logging.DEBUG
-if os.environ.get("GITHUB_SHA"):
+if os.environ.get("GITHUB_ACTIONS"):
     LOG_LEVEL = logging.ERROR
 DIRECTACCESS_API_KEY = os.environ.get("DIRECTACCESS_API_KEY")
 DIRECTACCESS_CLIENT_ID = os.environ.get("DIRECTACCESS_CLIENT_ID")
