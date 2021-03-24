@@ -14,7 +14,7 @@ import os
 import csv
 from multiprocessing import Process
 
-from directaccess import DirectAccessV2
+from enverus_direct_access import DirectAccessV2
 
 # Retrieve our access token
 ACCESS_TOKEN = DirectAccessV2(

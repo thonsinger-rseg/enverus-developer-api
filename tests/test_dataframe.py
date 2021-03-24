@@ -3,7 +3,7 @@ import logging
 
 from pandas.api.types import is_datetime64_ns_dtype, is_float_dtype, is_int64_dtype
 
-from directaccess import DirectAccessV2
+from enverus_direct_access import DirectAccessV2
 from tests.utils import set_token
 
 set_token()

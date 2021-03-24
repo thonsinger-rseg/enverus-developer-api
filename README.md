@@ -1,8 +1,10 @@
-# direct-access-py
-![directaccess](https://github.com/wchatx/direct-access-py/workflows/directaccess/badge.svg)
-[![PyPI version](https://badge.fury.io/py/directaccess.svg)](https://badge.fury.io/py/directaccess) 
+# enverus-developer-api
 
-A thin wrapper around Drillinginfo's Direct Access API. Handles authentication and token management, pagination and
+[comment]: <> (![directaccess]&#40;https://github.com/wchatx/direct-access-py/workflows/directaccess/badge.svg&#41;)
+
+[comment]: <> ([![PyPI version]&#40;https://badge.fury.io/py/directaccess.svg&#41;]&#40;https://badge.fury.io/py/directaccess&#41; )
+
+A thin wrapper around Enverus's Direct Access API. Handles authentication and token management, pagination and
 network-related error handling/retries.  
 
 This module is built and tested on Python 3.6 but should work on Python 2.7 and up.
@@ -10,7 +12,7 @@ This module is built and tested on Python 3.6 but should work on Python 2.7 and 
 
 ## Install
 ```commandline
-pip install directaccess
+pip install enverus-developer-api
 ```
 
 ## Usage
@@ -18,7 +20,7 @@ pip install directaccess
 ### Direct Access Version 1
 For version 1 of the API, create an instance of the DirectAccessV1 class and provide it your API key
 ```python
-from directaccess import DirectAccessV1
+from enverus_developer_api import DirectAccessV1
 
 d1 = DirectAccessV1(api_key='<your-api-key>')
 ```
@@ -36,7 +38,7 @@ For version 2 of the API, create an instance of the DirectAccessV2 class, provid
 The returned access token will be available as an attribute on the instance (d2.access_token) and the Authorization
 header is set automatically
 ```python
-from directaccess import DirectAccessV2
+from enverus_developer_api import DirectAccessV2
 
 d2 = DirectAccessV2(
     api_key='<your-api-key>',
@@ -53,7 +55,7 @@ for row in d2.query('well-origins', county='REEVES', pagesize=10000):
 ```
 
 ### Filter functions
-Direct Access version 2 supports filter funtions. These can be passed as strings on the keyword arguments.
+Direct Access version 2 supports filter functions. These can be passed as strings on the keyword arguments.
 
 Some common filters are greater than (`gt()`), less than (`lt()`), null, not null (`not(null)`) and between (`btw()`).  
 See the Direct Access documentation for a list of all available filters.
@@ -92,7 +94,7 @@ link as an attribute (v2 only).
 
 Retrying while making requests
 ```python
-from directaccess import DirectAccessV1
+from enverus_developer_api import DirectAccessV1
 
 # Retry 5 times, backing off exponentially 
 # (1 second, 2 seconds, 4 seconds, 16 seconds, 256 seconds)
@@ -108,7 +110,7 @@ so that you can pick back up where you left off. A basic implementation might lo
 ```python
 import os
 import json
-from directaccess import DirectAccessV2
+from enverus_developer_api import DirectAccessV2
 
 RECOVERY_FILE = 'your-api-links.json'
 

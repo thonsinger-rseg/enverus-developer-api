@@ -2,7 +2,7 @@ import os
 import logging
 from tempfile import TemporaryFile
 
-from directaccess import (
+from enverus_direct_access import (
     DirectAccessV1,
     DirectAccessV2,
     DADatasetException,

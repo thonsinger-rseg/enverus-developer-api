@@ -3,7 +3,7 @@ import csv
 import logging
 from tempfile import mkdtemp
 
-from directaccess import DirectAccessV2
+from enverus_direct_access import DirectAccessV2
 from tests.utils import set_token
 
 set_token()

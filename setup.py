@@ -33,18 +33,18 @@ pandas = [
 ]
 
 setup(
-    name='enverus_directaccess',
+    name='enverus-developer-api',
     version=VERSION,
-    description='Enverus Direct Access API Python Client',
+    description='Enverus Direct Access Developer API Python Client',
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
     author='Cole Howard',
     author_email='wchatx@gmail.com',
-    url='https://github.com/enverus-ea/direct-access-py',
+    url='https://github.com/enverus-ea/enverus-developer-api',
     license='MIT',
     keywords=['enverus', 'drillinginfo', 'oil', 'gas'],
     packages=find_packages(exclude=('test*', )),
-    package_dir={'enverus_directaccess': 'enverus_directaccess'},
+    package_dir={'enverus_developer_api': 'enverus_developer_api'},
     install_requires=['requests>=2.5.1, <3', 'unicodecsv==0.14.1'],
     extras_require={'pandas': pandas},
     cmdclass={
