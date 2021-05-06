@@ -45,3 +45,7 @@ def test_dataframe():
     assert is_float_dtype(df.RigLongitudeWGS84)
 
     return
+
+
+if __name__ == "__main__":
+    test_dataframe()

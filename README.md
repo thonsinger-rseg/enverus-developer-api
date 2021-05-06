@@ -4,7 +4,7 @@
 
 [comment]: <> ([![PyPI version]&#40;https://badge.fury.io/py/directaccess.svg&#41;]&#40;https://badge.fury.io/py/directaccess&#41; )
 
-A thin wrapper around Enverus's Developer API. Handles authentication and token management, pagination and
+A thin wrapper around Enverus' Developer API. Handles authentication and token management, pagination and
 network-related error handling/retries.  
 
 This module is built and tested on Python 3.6 but should work on Python 2.7 and up.

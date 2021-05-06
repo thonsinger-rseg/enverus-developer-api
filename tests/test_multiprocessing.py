@@ -61,3 +61,7 @@ def test_multiple_processes():
     [x.start() for x in procs]
     [x.join() for x in procs]
     return
+
+
+if __name__ == "__main__":
+    test_multiple_processes()

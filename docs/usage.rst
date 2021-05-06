@@ -1,7 +1,7 @@
 
 Usage Guide
 ===========
-This module is a thin wrapper around Enverus Drillinginfo's Developer API (formerly known as Direct Access).
+This module is a thin wrapper around Enverus' Developer API (formerly known as Direct Access).
 It handles authentication and token management, pagination and network-related
 error handling/retries. It also provides a simple, convenient method to write
 results to CSV.
