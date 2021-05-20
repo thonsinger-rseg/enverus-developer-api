@@ -1,8 +1,6 @@
 # enverus-developer-api
 
-[comment]: <> (![directaccess]&#40;https://github.com/wchatx/direct-access-py/workflows/directaccess/badge.svg&#41;)
-
-[comment]: <> ([![PyPI version]&#40;https://badge.fury.io/py/directaccess.svg&#41;]&#40;https://badge.fury.io/py/directaccess&#41; )
+[![PyPI version](https://badge.fury.io/py/enverus-developer-api.svg)](https://badge.fury.io/py/enverus-developer-api)
 
 A thin wrapper around Enverus' Developer API. Handles authentication and token management, pagination and
 network-related error handling/retries.  

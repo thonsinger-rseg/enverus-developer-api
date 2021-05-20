@@ -61,7 +61,7 @@ class BaseAPI(object):
         self.session = requests.Session()
         self.session.verify = kwargs.pop("verify", True)
         self.session.proxies = kwargs.pop("proxies", {})
-        self.session.headers["User-Agent"] = "direct-access-py"
+        self.session.headers["User-Agent"] = "enverus-developer-api"
 
         self._status_forcelist = [500, 502, 503, 504]
         retries = Retry(
