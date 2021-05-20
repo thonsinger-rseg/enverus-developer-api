@@ -20,7 +20,7 @@ try:  # Use the memory-efficient ifilter function available in itertools for Pyt
 except ImportError:  # The built in filter function returns a generator in Python 3
     pass
 
-from enverus_direct_access import DirectAccessV2
+from enverus_developer_api import DirectAccessV2
 
 # Initialize our Direct Access object
 d2 = DirectAccessV2(
