@@ -15,6 +15,19 @@ pip install enverus-developer-api
 
 ## Clients
 
+### Developer API - Version 3
+DirectAccess has been rebranded as DeveloperAPI. For version 3 of the API, create an instance of the DeveloperAPIv3 class, providing it your secret_key (not the same as the v2 api_key).
+The returned access token will be available as an attribute on the instance (v3.access_token) and the Authorization
+header is set automatically.
+```python
+from enverus_developer_api import DeveloperAPIv3
+
+v3 = DeveloperAPIv3(secret_key='<your-secret-key>')
+```
+Your secret_key can be generated, retrieved and revoked at https://app.enverus.com/provisioning/directaccess
+
+The Developer API Version 3 endpoint documentation can be found at https://app.enverus.com/direct/#/api/explorer/v3/gettingStarted
+
 ### Direct Access - Version 2
 For version 2 of the API, create an instance of the DirectAccessV2 class, providing it your API key, client id and client secret.
 The returned access token will be available as an attribute on the instance (d2.access_token) and the Authorization
@@ -29,19 +42,6 @@ d2 = DirectAccessV2(
 )
 ```
 The Direct Access Version 2 endpoint documentation can be found at https://app.enverus.com/direct/#/api/explorer/v2/gettingStarted
-
-### Developer API - Version 3
-DirectAccess has been rebranded as DeveloperAPI. For version 3 of the API, create an instance of the DeveloperAPIv3 class, providing it your secret_key (not the same as the v2 api_key).
-The returned access token will be available as an attribute on the instance (v3.access_token) and the Authorization
-header is set automatically.
-```python
-from enverus_developer_api import DeveloperAPIv3
-
-v3 = DeveloperAPIv3(secret_key='<your-secret-key>')
-```
-Your secret_key can be generated, retrieved and revoked at https://app.enverus.com/provisioning/directaccess
-
-The Developer API Version 3 endpoint documentation can be found at https://app.enverus.com/direct/#/api/explorer/v3/gettingStarted
 
 ## Usage
 
