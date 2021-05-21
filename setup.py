@@ -2,11 +2,10 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-from setuptools import setup
-from setuptools import find_packages
+from setuptools import setup, find_packages
 from setuptools.command.install import install
 
-VERSION = '1.5.0'
+VERSION = '3.0.0'
 
 
 class VerifyVersionCommand(install):
@@ -35,14 +34,14 @@ pandas = [
 setup(
     name='enverus-developer-api',
     version=VERSION,
-    description='Enverus Direct Access Developer API Python Client',
+    description='Enverus Developer API Python Client',
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
-    author='Cole Howard',
-    author_email='wchatx@gmail.com',
+    author='Direct Access',
+    author_email='directaccess@enverus.com',
     url='https://github.com/enverus-ea/enverus-developer-api',
     license='MIT',
-    keywords=['enverus', 'drillinginfo', 'oil', 'gas'],
+    keywords=['enverus', 'drillinginfo', 'directaccess', 'oil', 'gas'],
     packages=find_packages(exclude=('test*', )),
     package_dir={'enverus_developer_api': 'enverus_developer_api'},
     install_requires=['requests>=2.5.1, <3', 'unicodecsv==0.14.1'],

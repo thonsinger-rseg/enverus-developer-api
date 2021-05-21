@@ -20,8 +20,8 @@ sys.path.insert(0, os.path.abspath('../'))
 # -- Project information -----------------------------------------------------
 
 project = 'directaccess'
-copyright = '2020'
-author = 'wchatx'
+copyright = '2021'
+author = 'directaccess'
 
 # The short X.Y version
 version = ''
@@ -132,7 +132,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'direct-access-py.tex', 'direct-access-py Documentation',
-     'Cole Howard', 'manual'),
+     'Direct Access', 'manual'),
 ]
 
 
