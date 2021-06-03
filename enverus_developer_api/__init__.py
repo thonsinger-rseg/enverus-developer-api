@@ -310,7 +310,7 @@ class BaseAPI(object):
         ddl = self.ddl(dataset, database="mssql")
 
         try:
-            index_col = re.findall(r"PRIMARY KEY \(([a-z0-9,]*)\)", ddl)[0].split(",")
+            index_col = re.findall(r"PRIMARY KEY \(([a-z0-9_,]*)\)", ddl)[0].split(",")
         except IndexError:
             index_col = None
 
@@ -356,12 +356,24 @@ class BaseAPI(object):
         date_cols = [k for k, v in ddl.items() if v == "DATETIME" and k in filter_]
         self.logger.debug("date columns:\n{}".format(json.dumps(date_cols, indent=2)))
 
+        for k, v in ddl.items():
+            if k in filter_:
+                if v.startswith("VARCHAR"):
+                    ddl[k] = "VARCHAR"
+                elif v.startswith("DOUBL"):
+                    ddl[k] = "DOUBLE"
+
         dtypes_mapping = {
             "TEXT": "object",
             "NUMERIC": "float64",
+            "REAL": "float64",
+            "DOUBLE": "float64",
             "DATETIME": "object",
+            "SMALLINT": "Int64",
             "INT": "Int64",
-            "VARCHAR(5)": "object",
+            "INTEGER": "Int64",
+            "BIGINT": "Int64",
+            "VARCHAR": "object"
         }
         dtypes = {k: dtypes_mapping[v] for k, v in ddl.items() if k in filter_}
         self.logger.debug("dtypes:\n{}".format(json.dumps(dtypes, indent=2)))
@@ -413,6 +425,8 @@ class BaseAPI(object):
                 chunksize = int(floor(1950 / len(max(values))))
                 query_chunks = (field, [x for x in _chunks(values, chunksize)])
 
+        paging = options.pop("paging") if "paging" in options else "true"
+
         while True:
             if self.links:
                 response = self.session.get(self.url[:-1] + self.links["next"]["url"])
@@ -445,7 +459,7 @@ class BaseAPI(object):
             for record in records:
                 yield record
 
-            if self.links is None:
+            if self.links is None or paging.lower() == "false":
                 break
 
 
