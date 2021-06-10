@@ -466,7 +466,7 @@ class BaseAPI(object):
 class DirectAccessV2(BaseAPI):
     """Client for Enverus' Developer API Version 2"""
 
-    url = "https://di-api.drillinginfo.com/v2/direct-access/"
+    api_path = "v2/direct-access/"
 
     def __init__(
             self,
@@ -477,6 +477,7 @@ class DirectAccessV2(BaseAPI):
             backoff_factor=1,
             links=None,
             access_token=None,
+            url="https://di-api.drillinginfo.com/",
             **kwargs
     ):
         """
@@ -500,8 +501,12 @@ class DirectAccessV2(BaseAPI):
         :param access_token: an optional, pregenerated access token. If provided, the class instance will not
         automatically try to request a new access token.
         :type: access_token: str
+        :param url: optional. The domain of the Developer API service to use. Value must end with a '/'.
+        Defaults to the Production service.
+        :type: url: str
         :param kwargs:
         """
+        self.url = os.path.join(url, self.api_path)
         super(DirectAccessV2, self).__init__(self.url, api_key, retries, backoff_factor, **kwargs)
         self.client_id = client_id
         self.client_secret = client_secret
@@ -547,7 +552,7 @@ class DirectAccessV2(BaseAPI):
 class DeveloperAPIv3(BaseAPI):
     """Client for Enverus' Developer API Version 3"""
 
-    url = "https://api.enverus.com/v3/direct-access/"
+    api_path = "v3/direct-access/"
 
     def __init__(
             self,
@@ -556,6 +561,7 @@ class DeveloperAPIv3(BaseAPI):
             backoff_factor=1,
             links=None,
             access_token=None,
+            url="https://api.enverus.com/",
             **kwargs
     ):
         """
@@ -575,8 +581,12 @@ class DeveloperAPIv3(BaseAPI):
         :param access_token: an optional, pregenerated access token. If provided, the class instance will not
         automatically try to request a new access token.
         :type: access_token: str
+        :param url: optional. The domain of the Developer API service to use. Value must end with a '/'.
+        Defaults to the Production service.
+        :type: url: str
         :param kwargs:
         """
+        self.url = os.path.join(url, self.api_path)
         super(DeveloperAPIv3, self).__init__(self.url, secret_key, retries, backoff_factor, **kwargs)
         self.links = links
         self.access_token = access_token
