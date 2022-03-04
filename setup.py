@@ -5,7 +5,7 @@ import sys
 from setuptools import setup, find_packages
 from setuptools.command.install import install
 
-VERSION = '3.1.0'
+VERSION = '3.2.1'
 
 
 class VerifyVersionCommand(install):
