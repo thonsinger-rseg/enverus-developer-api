@@ -353,7 +353,7 @@ class BaseAPI(object):
             index_col = None
         self.logger.debug("index_col: {}".format(index_col))
 
-        date_cols = [k for k, v in ddl.items() if v == "DATETIME" and k in filter_]
+        date_cols = [k for k, v in ddl.items() if v.startswith("DATE") and k in filter_]
         self.logger.debug("date columns:\n{}".format(json.dumps(date_cols, indent=2)))
 
         for k, v in ddl.items():
@@ -373,7 +373,8 @@ class BaseAPI(object):
             "INT": "Int64",
             "INTEGER": "Int64",
             "BIGINT": "Int64",
-            "VARCHAR": "object"
+            "VARCHAR": "object",
+            "DATE": "object"
         }
         dtypes = {k: dtypes_mapping[v] for k, v in ddl.items() if k in filter_}
         self.logger.debug("dtypes:\n{}".format(json.dumps(dtypes, indent=2)))
@@ -382,6 +383,7 @@ class BaseAPI(object):
         self.logger.debug("Created temporary directory: " + t)
 
         query = self.query(dataset, **options)
+
         try:
             chunks = pandas.read_csv(
                 filepath_or_buffer=self.to_csv(
